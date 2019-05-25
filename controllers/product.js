@@ -1,13 +1,10 @@
 const Product = require("../models/Product");
+// const { CustomAPIError, NotFoundError, BadRequestError } = require("../errors");
 
 const createProduct = async (req, res) => {
-  try {
-    const product = await Product.create(req.body);
+  const product = await Product.create(req.body);
 
-    res.status(200).json({ product });
-  } catch (err) {
-    console.error(err);
-  }
+  res.status(200).json({ product });
 };
 
 const getAllProducts = (req, res) => {
